@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
+<!DOCTYPE html><html><head>
+		<meta charset="utf-8">
 		<title></title>
-	</head>
+		<style>
+			div{
+				border: 2px solid black;
+			}
+			a{
+				display: block;
+				color: yellow;
+				background-color: red;
+			}
+		</style>
+	<script>
+		function createA(){
+			var z=document.getElementById("div1");
+			var x=document.createElement("A");
+			var y=document.createTextNode("a")
+			x.appendChild(y);
+			z.appendChild(x);
+		}
+		function deleteA(){
+			var x=document.getElementById("div1");
+			var y=x.childNodes;
+			var z=y.length;
+			for(i=z-1;i>=0;i--)
+			{
+				if(y[i].tagName=="A")
+				x.removeChild(y[i]);
+			}
+		};
+		function deleteP(){
+			var x=document.getElementById("div1");
+			var y=x.childNodes;
+			var z=y.length;
+			for(i=0;i<z;i++)
+			{
+				if(y[i].tagName=="P")
+				x.removeChild(y[i]);
+			}
+		};
+		function color(){
+			var x=document.getElementById("div1");
+			var y=x.childNodes;
+			var z=y.length;
+			for(i=0;i<z;i++)
+			{
+				if(y[i].tagName=="A" || y[i].tagName=="P")
+				y[i].style.backgroundColor="red"
+			}
+		}
+	</script></head>
+	
 	<body>
+	<div id="div1">
 		
-	</body>
-</html>
+		
+		
+		
+	<a>a</a><a>a</a></div>	
+	
+	<button type="button" onclick="createA()">增加A元素</button>
+	<button type="button" onclick="deleteA()">删除A元素</button>
+	<button type="button" onclick="deleteP()">删除P元素</button>
+	<button type="button" onclick="color()">改变颜色</button>
+
+</body></html>
